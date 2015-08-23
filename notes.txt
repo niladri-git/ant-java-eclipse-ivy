@@ -1,0 +1,34 @@
+Ant + ivy
+
+http://www.mkyong.com/ant/ant-how-to-create-a-java-project/
+
+For the first time, download the ivy module from Maven center repository to local ${user.home}/.ant/lib/ivy.jar.
+
+$ ant ivy
+
+To download the external libraries, run task “resolve”. The declared libraries will be downloaded to the project lib folder.
+
+$ ant resolve
+
++++
+
+4. build.xml
+
+Review the updated build.xml script, read comments for self-explanatory.
+
+Main points :
+
+    Manage the project external libraries with Apache Ivy, review the ivy namespace on top, and task “resolve”.
+    To compile the source code, you need to declares the classpath. Review task “compile”, and “classpathref” attribute.
+    In “jar” task, constructs the entire list of the external libraries and put it into the manifest.mf file.
+    In “jar” task, the project jar will be packaged to folder “dist” and the entire external libraries will be copied to from “lib” to “dist/lib”.
+	
++++
+
+$ ant
+
+$ java -jar dist/DateUtils.jar 
+
+$ java -jar -Dlogback.configurationFile=src/logback.xml dist/DateUtils.jar
+
++++
