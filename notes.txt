@@ -2,6 +2,8 @@ Ant + ivy
 
 http://www.mkyong.com/ant/ant-how-to-create-a-java-project/
 
+Creating A Jar File with external libraries
+
 For the first time, download the ivy module from Maven center repository to local ${user.home}/.ant/lib/ivy.jar.
 
 $ ant ivy
@@ -32,3 +34,20 @@ $ java -jar dist/DateUtils.jar
 $ java -jar -Dlogback.configurationFile=src/logback.xml dist/DateUtils.jar
 
 +++
+
+Creating a fat jar file
+
+To create a fat jar, use “Jar” task and zipfileset function
+
+$ ant -f build-fat.xml ivy
+
+$ ant -f build-fat.xml resolve
+
+$ ant -f build-fat.xml 
+
+$ java -jar dist/DateUtils.jar 
+
++++
+
+
+
